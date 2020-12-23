@@ -29,7 +29,7 @@ const Home = ({data}) => {
     setResults(json);
   }
 
-  const getDataForNextDay = async () => {
+  const getDataForNextDay = async () => { 
     let currentDate = dayjs(results.date);
     let newDate = currentDate.add(1, 'day').format('YYYY-MM-DDTHH:mm:ss')
     const res = await fetch('http://localhost:3000/api/daily?date=' + newDate)
