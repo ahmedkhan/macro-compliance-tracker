@@ -1,6 +1,6 @@
-import nextConnect from 'next-connect';
-import middleware from '../../middleware/database';
-import {ObjectID} from 'mongodb';
+const  nextConnect = require('next-connect');
+const middleware = require( '../../middleware/database');
+const {ObjectID} = require( 'mongodb');
 
 
 
@@ -34,4 +34,4 @@ handler.post(async (req, res) => {
 
     res.json({message: 'ok'});
 })  
-export default (req, res) => handler.run(req, res) 
+module.exports = (req, res) => handler.run(req, res) 
