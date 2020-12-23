@@ -1,6 +1,6 @@
-const  nextConnect = require('next-connect');
-const middleware = require( '../../middleware/database');
-const {ObjectID} = require( 'mongodb');
+import nextConnect from 'next-connect';
+import middleware from '../../middleware/database';
+import {ObjectID} from 'mongodb';
 
 
 
@@ -8,7 +8,7 @@ const handler = nextConnect();
  
 handler.use(middleware);
  
-handler.get(async (req , res) => {
+handler.get(async (req:any , res:any) => {
     const { date } = req.query;
 
     const dataModel = { "_id": new ObjectID(), "date": date, "calories": { "label": "Calories", "total": 0, "target": 0, "variant": 0 }, "carbs": { "label": "Carbs", "total": 0, "target": 0, "variant": 0 }, "fat": { "label" : "Fat", "total": 0, "target": 0, "variant": 0 }, "protein": { "label" : "Protein", "total": 0, "target": 0, "variant": 0 }}
@@ -26,7 +26,7 @@ handler.get(async (req , res) => {
     res.json(doc)
 });
 
-handler.post(async (req, res) => {
+handler.post(async (req:any, res:any) => {
     let data = req.body
     data = JSON.parse(data);
     data.date = new Date(data.date);
@@ -34,4 +34,4 @@ handler.post(async (req, res) => {
 
     res.json({message: 'ok'});
 })  
-module.exports = (req, res) => handler.run(req, res) 
+export default (req, res) => handler.run(req, res) 

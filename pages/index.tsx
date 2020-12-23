@@ -99,7 +99,7 @@ Home.getInitialProps = async () => {
   const json = await res.json()
   return { data: json }
 }
-
+ 
 export default Home
 
 
