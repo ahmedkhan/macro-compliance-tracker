@@ -7,8 +7,8 @@ import {ObjectID} from 'mongodb';
 const handler = nextConnect();
  
 handler.use(middleware);
-
-handler.get(async (req :any , res:any ) => {
+ 
+handler.get(async (req , res) => {
     const { date } = req.query;
 
     const dataModel = { "_id": new ObjectID(), "date": date, "calories": { "label": "Calories", "total": 0, "target": 0, "variant": 0 }, "carbs": { "label": "Carbs", "total": 0, "target": 0, "variant": 0 }, "fat": { "label" : "Fat", "total": 0, "target": 0, "variant": 0 }, "protein": { "label" : "Protein", "total": 0, "target": 0, "variant": 0 }}
@@ -26,7 +26,7 @@ handler.get(async (req :any , res:any ) => {
     res.json(doc)
 });
 
-handler.post(async (req :any, res:any) => {
+handler.post(async (req, res) => {
     let data = req.body
     data = JSON.parse(data);
     data.date = new Date(data.date);
