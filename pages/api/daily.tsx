@@ -33,6 +33,5 @@ handler.post(async (req :any, res:any) => {
     let doc = await req.db.collection('daily').updateOne({date: new Date(data.date)}, {$set:data}, {upsert: true})
 
     res.json({message: 'ok'});
-}) 
- 
+})  
 export default (req, res) => handler.run(req, res) 
