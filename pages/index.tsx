@@ -93,7 +93,7 @@ const Home = ({data}) => {
       </div>
     </div>
   )
-}
+} 
 Home.getInitialProps = async () => {
   const res = await fetch('http://localhost:3000/api/daily')
   const json = await res.json()
