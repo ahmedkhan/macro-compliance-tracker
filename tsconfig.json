@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/api/daily.js"  ],
+, "pages/api/daily.ts"  ],
   "exclude": [
     "node_modules"
   ]
