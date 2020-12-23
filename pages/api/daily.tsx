@@ -35,4 +35,4 @@ handler.post(async (req :any, res:any) => {
     res.json({message: 'ok'});
 }) 
  
-export default (req, res) => handler.apply(req, res) 
+export default (req, res) => handler.run(req, res) 
